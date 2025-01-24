@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        int totalSeats = 50;  // Примерное количество мест, нужно заменить на реальное значение
+        TouristBus bus = new TouristBus(totalSeats, 500);
+        TouristBus bus2 = new TouristBus(totalSeats, 600);
+        System.out.println(bus);
+        System.out.println(bus2);
+        
+        Scanner scanner1 = new Scanner(System.in);
+        int seats1 = 0;
+        boolean validInput1 = false;
+        while (!validInput1) {
+            System.out.print("Введите количество мест для первого автобуса: ");
+            try {
+                seats1 = scanner1.nextInt();
+                if (seats1 < 0) {
+                    System.out.println("Ошибка: количество мест не может быть отрицательным.");
+                } else if (seats1 > totalSeats) {
+                    System.out.println("Ошибка: в автобусе нет столько мест.");
+                } else {
+                    validInput1 = true;
+                }
+            } catch (Exception e) {
+                System.out.println("Ошибка: введите целое число.");
+                scanner1.next();  // Очистка буфера
+            }
+        }
+        bus.occupySeats(seats1);
+
+        Scanner scanner2 = new Scanner(System.in);
+        int seats2 = 0;
+        boolean validInput2 = false;
+        while (!validInput2) {
+            System.out.print("Введите количество мест для второго автобуса: ");
+            try {
+                seats2 = scanner2.nextInt();
+                if (seats2 < 0) {
+                    System.out.println("Ошибка: количество мест не может быть отрицательным.");
+                } else if (seats2 > totalSeats) {
+                    System.out.println("Ошибка: в автобусе нет столько мест.");
+                } else {
+                    validInput2 = true;
+                }
+            } catch (Exception e) {
+                System.out.println("Ошибка: введите целое число.");
+                scanner2.next();  // Очистка буфера
+            }
+        }
+        bus2.occupySeats(seats2);
+
+        double obshayastoimost = bus.getTotalOccupiedSeatsCost() + bus2.getTotalOccupiedSeatsCost();
+        System.out.println("Общая стоимость занятых мест: " + obshayastoimost);
+
+        System.out.println("Свободных мест в первом автобусе: " + bus.getAvailableSeats());
+        System.out.println("Свободных мест во втором автобусе: " + bus2.getAvailableSeats());
+        System.out.println("Автобус 1 пуст? " + bus.isEmpty());
+        System.out.println("Автобус 1 полон? " + bus.isFull());
+        System.out.println("Автобус 2 пуст? " + bus2.isEmpty());
+        System.out.println("Автобус 2 полон? " + bus2.isFull());
+    }
+}

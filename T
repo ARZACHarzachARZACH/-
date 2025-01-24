@@ -1,0 +1,13 @@
+public class Main {
+    public static void main(String[] args) {
+        TouristBus bus = new TouristBus(50, 1200); // Создаем автобус с 50 местами и стоимостью 1200 за место
+        System.out.println(bus);
+        
+        bus.occupySeats(30); // Заполняем 30 мест
+        System.out.println("Общая стоимость занятых мест: " + bus.getTotalOccupiedSeatsCost());
+        
+        System.out.println("Свободных мест: " + bus.getAvailableSeats());
+        System.out.println("Автобус пуст? " + bus.isEmpty());
+        System.out.println("Автобус заполнен? " + bus.isFull());
+    }
+}

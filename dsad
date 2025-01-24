@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        TouristBus bus = new TouristBus(50, 500);
+        TouristBus bus2 = new TouristBus(50, 600);
+        System.out.println(bus);
+        System.out.println(bus2);
+        Scanner scanner1 = new Scanner(System.in);
+        int seats1 = scanner1.nextInt();
+        bus.occupySeats(seats1);
+        Scanner scanner2 = new Scanner(System.in);
+        int seats2 = scanner2.nextInt();
+        bus2.occupySeats(seats2);
+        double obshayastoimost = bus.getTotalOccupiedSeatsCost() + bus2.getTotalOccupiedSeatsCost();
+        System.out.println("Obshyaa stoimosti zan mest: " + obshayastoimost);
+
+        System.out.println("Svobodnix mest v pervom avtobuse: " + bus.getAvailableSeats());
+        System.out.println("Svobodnix mest v vtorom avtobuse: " + bus2.getAvailableSeats());
+        System.out.println("Avtobus 1 pust? " + bus.isEmpty());
+        System.out.println("Avtobus 1 polni? " + bus.isFull());
+        System.out.println("Avtobus 2 pust? " + bus2.isEmpty());
+        System.out.println("Avtobus 2 polni? " + bus2.isFull());
+    }
+}

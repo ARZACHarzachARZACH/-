@@ -1,0 +1,96 @@
+public class TouristBus {
+    // Поля класса
+    private int totalSeats;        // Общее количество мест
+    private double seatPrice;      // Стоимость одного места
+    private int occupiedSeats;     // Количество занятых мест
+
+    // Конструктор по умолчанию
+    public TouristBus() {
+        this.totalSeats = 40;      // По умолчанию 40 мест
+        this.seatPrice = 1000.0;   // По умолчанию стоимость 1000
+        this.occupiedSeats = 0;     // Автобус изначально пуст
+    }
+
+    // Конструктор с параметрами
+    public TouristBus(int totalSeats, double seatPrice) {
+        this.totalSeats = totalSeats;
+        this.seatPrice = seatPrice;
+        this.occupiedSeats = 0;     // Автобус изначально пуст
+    }
+
+    // Конструктор копирования
+    public TouristBus(TouristBus other) {
+        this.totalSeats = other.totalSeats;
+        this.seatPrice = other.seatPrice;
+        this.occupiedSeats = other.occupiedSeats;
+    }
+
+    // Метод для изменения количества занятых мест
+    public void occupySeats(int numberOfSeats) {
+        if (numberOfSeats <= 0) {
+            System.out.println("Количество мест должно быть положительным.");
+            return;
+        }
+        if (occupiedSeats + numberOfSeats <= totalSeats) {
+            occupiedSeats += numberOfSeats;
+        } else {
+            System.out.println("Недостаточно свободных мест.");
+        }
+    }
+
+    // Метод для изменения стоимости одного места
+    public void setSeatPrice(double seatPrice) {
+        this.seatPrice = seatPrice;
+    }
+
+    // Метод для получения стоимости одного места
+    public double getSeatPrice() {
+        return seatPrice;
+    }
+
+    // Метод для расчета количества свободных мест
+    public int getAvailableSeats() {
+        return totalSeats - occupiedSeats;
+    }
+
+    // Метод для проверки, пуст ли автобус
+    public boolean isEmpty() {
+        return occupiedSeats == 0;
+    }
+
+    // Метод для проверки, заполнен ли автобус
+    public boolean isFull() {
+        return occupiedSeats == totalSeats;
+    }
+
+    // Метод для расчета общей стоимости занятых мест
+    public double getTotalOccupiedSeatsCost() {
+        return occupiedSeats * seatPrice;
+    }
+
+    // Геттеры и сеттеры для полей
+    public int getTotalSeats() {
+        return totalSeats;
+    }
+
+    public int getOccupiedSeats() {
+        return occupiedSeats;
+    }
+
+    public void setTotalSeats(int totalSeats) {
+        this.totalSeats = totalSeats;
+    }
+
+    public void setOccupiedSeats(int occupiedSeats) {
+        this.occupiedSeats = occupiedSeats;
+    }
+    
+    @id86240433 (@Override)
+    public String toString() {
+        return "Туристический автобус: " +
+               "Общее количество мест = " + totalSeats + ", " +
+               "Стоимость одного места = " + seatPrice + ", " +
+               "Занятых мест = " + occupiedSeats + ", " +
+               "Свободных мест = " + getAvailableSeats();
+    }
+}

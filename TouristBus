@@ -1,0 +1,91 @@
+public class TouristBus {
+
+    private int totalSeats;
+    private double seatPrice;
+    private int occupiedSeats;
+
+
+    public TouristBus() {
+        this.totalSeats = 0;
+        this.seatPrice = 0;
+        this.occupiedSeats = 0;
+    }
+
+
+    public TouristBus(int totalSeats, double seatPrice) {
+        this.totalSeats = totalSeats;
+        this.seatPrice = seatPrice;
+        this.occupiedSeats = 0;
+    }
+
+
+
+    public void occupySeats(int numberOfSeats) {
+        if (numberOfSeats <= 0) {
+            System.out.println("Colichestvo mest doljno bit polozitelno.");
+            return;
+        }
+        if (occupiedSeats + numberOfSeats <= totalSeats) {
+            occupiedSeats += numberOfSeats;
+        } else {
+            System.out.println("Nedostatocno mest.");
+        }
+    }
+
+
+    public void setSeatPrice(double seatPrice) {
+        this.seatPrice = seatPrice;
+    }
+
+
+    public double getSeatPrice() {
+        return seatPrice;
+    }
+
+
+    public int getAvailableSeats() {
+        return totalSeats - occupiedSeats;
+    }
+
+
+    public boolean isEmpty() {
+        return occupiedSeats == 0;
+    }
+
+
+    public boolean isFull() {
+        return occupiedSeats == totalSeats;
+    }
+
+
+    public double getTotalOccupiedSeatsCost() {
+        return occupiedSeats * seatPrice;
+    }
+
+
+    public int getTotalSeats() {
+        return totalSeats;
+    }
+
+    public int getOccupiedSeats() {
+        return occupiedSeats;
+    }
+
+    public void setTotalSeats(int totalSeats) {
+        this.totalSeats = totalSeats;
+    }
+
+    public void setOccupiedSeats(int occupiedSeats) {
+        this.occupiedSeats = occupiedSeats;
+    }
+
+    @Override
+    public String toString() {
+        return "Tour bus: " +
+                "Total mest = " + totalSeats + ", " +
+                "Stoimost odnogo bileta= " + seatPrice + ", " +
+                "Zanyatih = " + occupiedSeats + ", " +
+                "Svobododnix mest = " + getAvailableSeats();
+    }
+}
+

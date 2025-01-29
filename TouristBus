@@ -19,28 +19,17 @@ public class TouristBus {
     }
 
 
-
     public void occupySeats(int numberOfSeats) {
         if (numberOfSeats <= 0) {
-            System.out.println("Colichestvo mest doljno bit polozitelno.");
             return;
         }
         if (occupiedSeats + numberOfSeats <= totalSeats) {
             occupiedSeats += numberOfSeats;
-        } else {
-            System.out.println("Nedostatocno mest.");
         }
     }
 
 
-    public void setSeatPrice(double seatPrice) {
-        this.seatPrice = seatPrice;
-    }
 
-
-    public double getSeatPrice() {
-        return seatPrice;
-    }
 
 
     public int getAvailableSeats() {
@@ -67,25 +56,6 @@ public class TouristBus {
         return totalSeats;
     }
 
-    public int getOccupiedSeats() {
-        return occupiedSeats;
-    }
 
-    public void setTotalSeats(int totalSeats) {
-        this.totalSeats = totalSeats;
-    }
 
-    public void setOccupiedSeats(int occupiedSeats) {
-        this.occupiedSeats = occupiedSeats;
-    }
-
-    @Override
-    public String toString() {
-        return "Tour bus: " +
-                "Total mest = " + totalSeats + ", " +
-                "Stoimost odnogo bileta= " + seatPrice + ", " +
-                "Zanyatih = " + occupiedSeats + ", " +
-                "Svobododnix mest = " + getAvailableSeats();
-    }
 }
-

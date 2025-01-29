@@ -4,8 +4,6 @@ public class Main {
     public static void main(String[] args) {
         TouristBus bus = new TouristBus(50, 500);
         TouristBus bus2 = new TouristBus(50, 600);
-        System.out.println(bus);
-        System.out.println(bus2);
         Scanner scanner1 = new Scanner(System.in);
         int seats1 = 0;
         boolean validInput1 = false;
@@ -13,7 +11,7 @@ public class Main {
             System.out.print("Vvedite mesta dlya 1 avtobusa: ");
             try {
                 seats1 = scanner1.nextInt();
-                if (seats1 < 0) {
+                if (seats1 <= 0) {
                     System.out.println("Ne otricatelnoe.");
                 } else if (seats1 > bus.getTotalSeats()) {
                     System.out.println("Net stoliko mest.");
@@ -21,7 +19,7 @@ public class Main {
                     validInput1 = true;
                 }
             } catch (Exception e) {
-                System.out.println("Vedite celoe chislo");
+                System.out.println("Vvedite celoe chislo");
                 scanner1.next();
             }
         }
@@ -33,7 +31,7 @@ public class Main {
             System.out.print("Vvedite mesta dlya 2 avtobusa: ");
             try {
                 seats2 = scanner2.nextInt();
-                if (seats2 < 0) {
+                if (seats2 <= 0) {
                     System.out.println("Ne otricatelnoe.");
                 } else if (seats2 > bus2.getTotalSeats()) {
                     System.out.println("Net stoliko mest.");
@@ -41,7 +39,7 @@ public class Main {
                     validInput2 = true;
                 }
             } catch (Exception e) {
-                System.out.println("Vedite celoe chislo.");
+                System.out.println("Vvedite celoe chislo.");
                 scanner2.next();
             }
         }
@@ -49,8 +47,8 @@ public class Main {
         double obshayastoimost = bus.getTotalOccupiedSeatsCost() + bus2.getTotalOccupiedSeatsCost();
         System.out.println("Obshyaa stoimosti zan mest: " + obshayastoimost);
 
-        System.out.println("Svobodnix mest v pervom avtobuse: " + bus.getAvailableSeats());
-        System.out.println("Svobodnix mest v vtorom avtobuse: " + bus2.getAvailableSeats());
+        System.out.println("Svobodnih mest v pervom avtobuse: " + bus.getAvailableSeats());
+        System.out.println("Svobodnih mest v vtorom avtobuse: " + bus2.getAvailableSeats());
         System.out.println("Avtobus 1 pust? " + bus.isEmpty());
         System.out.println("Avtobus 1 polni? " + bus.isFull());
         System.out.println("Avtobus 2 pust? " + bus2.isEmpty());

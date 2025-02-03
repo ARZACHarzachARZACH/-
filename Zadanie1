@@ -1,0 +1,10 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        String word1 = null;
+        Scanner scanner1 = new Scanner(System.in);
+        word1 = scanner1.next();
+        String word2 = word1.replaceAll("[A-ZА-Я]", "");
+        System.out.println(word2);
+    }
+}

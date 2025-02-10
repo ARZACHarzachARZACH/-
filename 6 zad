@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите текст:");
+        String text = scanner.nextLine();
+        System.out.println("Введите ключевое слово:");
+        String keyword = scanner.nextLine().trim();
+        String[] sentences = text.split("[.!?]");
+        for (int i = 0; i < sentences.length; i++) {
+            String sentence = sentences[i].trim();
+            String[] words = sentence.split("\\s+");
+            for (int j = 0; j < words.length; j++) {
+                if (words[j].equals(keyword)) {
+                    System.out.println(sentence);
+                    break;
+                }
+            }
+        }
+
+    }
+}

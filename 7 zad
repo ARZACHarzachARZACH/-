@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите текст телеграммы:");
+        String telegram = scanner.nextLine();
+
+        // Разделяем текст на слова и запятые
+        String[] words = telegram.split("[\\s,]+");
+
+        int cost = 0;
+        StringBuilder transformedText = new StringBuilder();
+
+        // Используем цикл for с индексом
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            if (word.length() <= 2) {
+                // Предлог, не учитываем
+                continue;
+            } else if (word.equals(",")) {
+                // Запятая, заменяем на 'зпт', 'zpt' или 'comma'
+                transformedText.append("зпт ");
+                cost += 10;
+            } else {
+                // Обычное слово, добавляем в текст и учитываем стоимость
+                transformedText.append(word).append(" ");
+                cost += 10;
+            }
+        }
+
+        // Убираем последний пробел
+        if (transformedText.length() > 0) {
+            transformedText.setLength(transformedText.length() - 1);
+        }
+
+        System.out.println("Стоимость телеграммы: " + cost + " руб.");
+        System.out.println("Преобразованный текст: " + transformedText.toString());
+    }
+}

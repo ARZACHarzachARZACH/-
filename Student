@@ -1,0 +1,33 @@
+import java.util.List;
+import java.util.ArrayList;
+
+public class Student extends Uchashiisa{
+    List<Double> OcenkiSessii;
+    List<Integer> KursovayaOcen;
+
+    public Student(String name, String gender, int age, List<Double> OcenkiSessii, List<Integer> KursovayaOcen) {
+        super(name, gender, age);
+        this.OcenkiSessii = OcenkiSessii;
+        this.KursovayaOcen = KursovayaOcen;
+    }
+    boolean SpecStip(){
+        double SredBall = 0.0;
+        if (!OcenkiSessii.isEmpty())
+        {
+            double summa = 0.0;
+            for (int i = 0; i < OcenkiSessii.size(); i++) {
+                summa += OcenkiSessii.get(i);
+                }
+            SredBall = summa / OcenkiSessii.size();
+            }
+        boolean KursPod = true;
+        for (int i = 0; i < KursovayaOcen.size(); i++){
+            int ocenka = 0;
+            if (ocenka !=5){
+                KursPod = false;
+                break;
+            }
+        }
+        return SredBall >= 4.75 && KursPod;
+    }
+}

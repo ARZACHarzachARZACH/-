@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+import java.util.List;
+public class Shkolnik extends Uchashiisa{
+    List<Integer> Godovie_ocenki;
+    List<String> olimpiadi;
+    public Shkolnik(String name, String gender, int age, List<Integer> Godovie_ocenki, List<String> olimpiadi ) {
+        super(name, gender, age);
+        this.Godovie_ocenki = Godovie_ocenki;
+        this.olimpiadi = olimpiadi;
+    }
+    boolean SpecStip(){
+        boolean ocenkipod = Godovie_ocenki.get(0) == 5 && Godovie_ocenki.get(1) == 5 && Godovie_ocenki.get(2) == 5 && Godovie_ocenki.get(3) == 5;
+        for (int i = 4; i < Godovie_ocenki.size(); i++){
+            if (Godovie_ocenki.get(i) < 4){
+                ocenkipod = false;
+                break;
+            }
+        }
+        boolean olippod = olimpiadi.contains("oblastnaya") || olimpiadi.contains("pervoe mesto shkol'naya") || olimpiadi.contains("prizovoe mesto gorodskaya");
+        return ocenkipod && olippod;
+    }
+}

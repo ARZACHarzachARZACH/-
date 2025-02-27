@@ -1,0 +1,39 @@
+public class Uchashiisa {
+    String name;
+
+    String gender;
+    int age;
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public String getGender() {
+        return gender;
+    }
+    public int getAge() {
+        return age;
+    }
+    public Uchashiisa(String name, String gender, int age) {
+        this.gender = gender;
+        this.age = age;
+        this.name = name;
+    }
+
+    @Override
+    public String toString(){
+        return name + " " + age + " " + gender;
+    }
+}
+
+
+
+

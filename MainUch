@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+import java.util.List;
+public class Main {
+    public static void main(String[] args) {
+        List<Shkolnik> shkolniks = new ArrayList<>();
+        shkolniks.add(new Shkolnik("Anna", "female", 16, List.of(5, 5, 5, 5, 4, 4), List.of("oblastnaya", "pervoe mesto shkol'naya")));
+        shkolniks.add(new Shkolnik("Ivan", "male", 17, List.of(5, 5, 5, 5, 5, 5), List.of("gorodskaya")));
+        shkolniks.add(new Shkolnik("Cesar", "male", 17, List.of(4, 4, 4, 3, 5, 3), List.of("oblastnaya")));
+        shkolniks.add(new Shkolnik("Vasilisa", "female", 16, List.of(4, 4, 4, 4, 4, 4), List.of("pervoe mesto shkol'naya")));
+        for (int i = 0; i < shkolniks.size(); i++) {
+            Shkolnik shkolnik = shkolniks.get(i);
+            if (shkolnik.gender.equals("female") && shkolnik.olimpiadi.contains("pervoe mesto shkol'naya")) {
+                System.out.println(shkolnik);
+            }
+        }
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Maria", "female", 20, List.of(5.0, 3.0, 5.0), List.of(4)));
+        students.add(new Student("Petr", "male", 21, List.of(4.5, 4.75, 5.0), List.of(5)));
+        for (int i = 0; i < students.size(); i++) {
+            Student student = students.get(i);
+            if (!student.KursovayaOcen.isEmpty()) {
+                System.out.println(student);
+            }
+        }
+        List<Uchashiisa> KandidatnaStep = new ArrayList<>();
+        for (int i = 0; i < shkolniks.size(); i++) {
+            Shkolnik shkolnik = shkolniks.get(i);
+            if (shkolnik.SpecStip()) {
+                KandidatnaStep.add(shkolnik);
+            }
+        }
+        for (int i = 0; i < students.size(); i++) {
+            Student student = students.get(i);
+            if (student.SpecStip()) {
+                KandidatnaStep.add(student);
+            }
+        }
+
+        System.out.println("Kandidat na spec Stip:");
+        for (int i = 0; i < KandidatnaStep.size(); i++) {
+            Uchashiisa uchashiisa = KandidatnaStep.get(i);
+            System.out.println(uchashiisa);
+        }
+    }
+}
